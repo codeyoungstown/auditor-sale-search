@@ -15,7 +15,7 @@ yesterday = (datetime.today() - timedelta(days=1)).strftime('%m/%d/%Y')
 
 
 def get_page(page):
-    page_command = command.format(page , yesterday, yesterday)
+    page_command = command.format(page, yesterday, yesterday, yesterday, yesterday)
     p = subprocess.Popen(page_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     return out
@@ -36,7 +36,7 @@ def parse_page(page):
 
 
 command  = "curl 'http://oh-mahoning-auditor.publicaccessnow.com/SalesSearch.aspx?page479={}&SearchType=1'"
-command += " -H 'Cookie: C_F1L=11/30/2018; C_F1H=11/30/2018; C_F2L=-1; C_F3L=-1; C_F4L=-1; C_F5L=-1; C_F6L=-1; C_F7L=-1; C_F8L=-1; C_F9L=-1; C_F10L=-1; C_F11L=-1; C_s1=1; C_s2=1; C_s3=1; C_s4=1; C_s5=1; C_s6=1; C_s7=1; C_s8=1;'"
+command += " -H 'Cookie: C_F1L={}; C_F1H={}; C_F2L=-1; C_F3L=-1; C_F4L=-1; C_F5L=-1; C_F6L=-1; C_F7L=-1; C_F8L=-1; C_F9L=-1; C_F10L=-1; C_F11L=-1; C_s1=1; C_s2=1; C_s3=1; C_s4=1; C_s5=1; C_s6=1; C_s7=1; C_s8=1;'"
 command += " --data-binary $'"
 command += """------WebKitFormBoundaryt68N7yP3UO6b5nv7
 Content-Disposition: form-data; name="StylesheetManager_TSSM"
