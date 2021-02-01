@@ -58,9 +58,9 @@ class AuditorSaleSearch(object):
             print('Found transfers:')
             for parcel, address in self.addresses.items():
                 if re.search(r'\d', address):
-                    print(parcel, address, 'https://www.google.com/maps/place/{}+mahoning+county+oh/'.format(address.replace(' ', '+')))
+                    print('{} {} https://www.google.com/maps/place/{}+mahoning+county+oh/'.format(parcel, address, address.replace(' ', '+')))
                 else:
-                    print(parcel, address)
+                    print('{} {}'.format(parcel, address))
         else:
             print('No transfers found')
 
