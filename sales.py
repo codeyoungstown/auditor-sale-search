@@ -32,7 +32,7 @@ class AuditorSaleSearch(object):
             owner = result.div.table.table.find_all('tr')[1].find_all('td')[1].text
             address = result.div.table.table.find_all('tr')[2].table.table.tr.find_all('td')[1].text
 
-            if self.query in owner.lower():
+            if self.query.lower() in owner.lower():
                 # Got an owner match, add address to final list
                 if parcel not in self.addresses.keys():
                     self.addresses[parcel.strip()] = re.sub('\s+', ' ', address).strip()
